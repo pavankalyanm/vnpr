@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/index.css') }}"
+    />
+  </head>
+  {% extends "index.html" %}{% block content %}
+
+  <style>
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid black;
+      border-radius: 4px;
+    }
+  </style>
+  <h2 style="margin-left: 10%">Register stolen Vehicle</h2>
+  <form method="post" style="margin-left: 10%">
+    <label for="name">Name</label>
+    <br />
+    <input
+      type="text"
+      name="name"
+      style="
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        border-radius: 4px;
+      "
+    />
+    <br />
+    <label for="number">Vehicle Number</label>
+    <br />
+    <input
+      type="text"
+      name="number"
+      style="
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        border-radius: 4px;
+      "
+    />
+    <br />
+    <label for="location">Lost Location</label>
+    <br />
+    <input
+      type="text"
+      name="lostseen"
+      style="
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        border-radius: 4px;
+      "
+    />
+    <br />
+    <label for="address">Owner address</label>
+    <br />
+    <input
+      type="text"
+      name="ownaddr"
+      style="
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        border-radius: 4px;
+      "
+    />
+    <br />
+    <label for="contact">Owner contact</label>
+    <br />
+    <input
+      type="text"
+      name="contact"
+      style="
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        border-radius: 4px;
+      "
+    /><br />
+    <input type="submit" id="submitButton" value="Register" />
+  </form>
+
+  {% endblock %}
+</html>

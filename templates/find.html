@@ -1,0 +1,83 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Stolen Vehicle Detection</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles/index.css') }}"
+  />
+  <script src="app.js"></script>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+      left: 5%;
+    }
+  </style>
+</head>
+{% extends "index.html" %} {% block content %}
+<body>
+  <center>
+    <div id="speechContainer">
+      <h1>Upload Car Image</h1>
+      <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <br />
+        <input type="submit" id="submitButton" value="Find" />
+      </form>
+      {% if transcript != "" %}
+      <div id="speechTranscriptContainer">
+        <h3>Its a stolen vehicle</h3>
+        <p id="speechText" style="font-size: 20">Details:-</p>
+      </div>
+
+      <table style="width: 35%">
+        <tr>
+          <th>Owner Name</th>
+          <td>{{transcript["name"]}}</td>
+        </tr>
+        <tr>
+          <th>Vehicle Number</th>
+          <td>{{transcript["vnumber"]}}</td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td>{{transcript["owneraddress"]}}</td>
+        </tr>
+        <tr>
+          <th>Last Seen Location</th>
+          <td>{{transcript["lastseen"]}}</td>
+        </tr>
+        <tr>
+          <th>Lost Location</th>
+          <td>{{transcript["lostloc"]}}</td>
+        </tr>
+        <tr>
+          <th>Contact</th>
+          <td>{{transcript["contact"]}}</td>
+        </tr>
+      </table>
+
+      {% endif %}
+    </div>
+  </center>
+</body>
+{% endblock %}
